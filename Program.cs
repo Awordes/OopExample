@@ -2,13 +2,11 @@
 {
     public static void Main()
     {
-        var cat = new Cat();
-        cat._nickname = "Myrzik";
+        var cat = new Cat("Myrzik");
         PrintAnimalVoice(cat);
         SaveAnimalVoice(cat);
 
-        var dog = new Dog();
-        dog._nickname = "Dryzhok";
+        var dog = new Dog("Dryzhok");
         PrintAnimalVoice(dog);
         SaveAnimalVoice(dog);
     }
@@ -20,19 +18,31 @@
 
     public static void SaveAnimalVoice(AnimalBase animal)
     {
-        File.WriteAllText($"{animal._nickname}.voice", animal.GetVoice());
+        File.WriteAllText($"{animal.GetNickname()}.voice", animal.GetVoice());
     }
 }
 
 public abstract class AnimalBase
 {
-    public string _nickname;
+    private string _nickname;
+
+    public AnimalBase(string nickname)
+    {
+        _nickname = nickname;
+    }
 
     public abstract string GetVoice();
+
+    public string GetNickname()
+    {
+        return _nickname;
+    }
 }
 
 public class Cat: AnimalBase
 {
+    public Cat(string nickname): base(nickname) { }
+
     public override string GetVoice()
     {
         return "Meow";
@@ -41,6 +51,8 @@ public class Cat: AnimalBase
 
 public class Dog: AnimalBase
 {
+    public Dog(string nickname): base(nickname) { }
+
     public override string GetVoice()
     {
         return "Woof";
