@@ -3,36 +3,31 @@
     public static void Main()
     {
         var cat = new Cat();
-        PrintCatVoice(cat); 
-        SaveCatVoice(cat);
+        PrintAnimalVoice(cat);
+        SaveAnimalVoice(cat);
 
         var dog = new Dog();
-        PrintDogVoice(dog);
-        SaveDogVoice(dog);
+        PrintAnimalVoice(dog);
+        SaveAnimalVoice(dog);
     }
 
-    public static void PrintCatVoice(Cat cat)
+    public static void PrintAnimalVoice(IAnimal animal)
     {
-        Console.WriteLine(cat.GetVoice());
+        Console.WriteLine(animal.GetVoice());
     }
 
-    public static void SaveCatVoice(Cat cat)
+    public static void SaveAnimalVoice(IAnimal animal)
     {
-        File.WriteAllText($"cat.voice", cat.GetVoice());
-    }
-
-    public static void PrintDogVoice(Dog dog)
-    {
-        Console.WriteLine(dog.GetVoice());
-    }
-
-    public static void SaveDogVoice(Dog dog)
-    {
-        File.WriteAllText($"dog.voice", dog.GetVoice());
+        File.WriteAllText($"animal.voice", animal.GetVoice());
     }
 }
 
-public class Cat
+public interface IAnimal
+{
+    string GetVoice();
+}
+
+public class Cat: IAnimal
 {
     public string GetVoice()
     {
@@ -40,7 +35,7 @@ public class Cat
     }
 }
 
-public class Dog
+public class Dog: IAnimal
 {
     public string GetVoice()
     {
