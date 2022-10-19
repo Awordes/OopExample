@@ -11,33 +11,33 @@
         SaveAnimalVoice(dog);
     }
 
-    public static void PrintAnimalVoice(IAnimal animal)
+    public static void PrintAnimalVoice(AnimalBase animal)
     {
         Console.WriteLine(animal.GetVoice());
     }
 
-    public static void SaveAnimalVoice(IAnimal animal)
+    public static void SaveAnimalVoice(AnimalBase animal)
     {
         File.WriteAllText($"animal.voice", animal.GetVoice());
     }
 }
 
-public interface IAnimal
+public abstract class AnimalBase
 {
-    string GetVoice();
+    public abstract string GetVoice();
 }
 
-public class Cat: IAnimal
+public class Cat: AnimalBase
 {
-    public string GetVoice()
+    public override string GetVoice()
     {
         return "Meow";
     }
 }
 
-public class Dog: IAnimal
+public class Dog: AnimalBase
 {
-    public string GetVoice()
+    public override string GetVoice()
     {
         return "Woof";
     }
