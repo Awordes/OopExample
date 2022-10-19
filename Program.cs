@@ -3,10 +3,12 @@
     public static void Main()
     {
         var cat = new Cat();
+        cat._nickname = "Myrzik";
         PrintAnimalVoice(cat);
         SaveAnimalVoice(cat);
 
         var dog = new Dog();
+        dog._nickname = "Dryzhok";
         PrintAnimalVoice(dog);
         SaveAnimalVoice(dog);
     }
@@ -18,12 +20,14 @@
 
     public static void SaveAnimalVoice(AnimalBase animal)
     {
-        File.WriteAllText($"animal.voice", animal.GetVoice());
+        File.WriteAllText($"{animal._nickname}.voice", animal.GetVoice());
     }
 }
 
 public abstract class AnimalBase
 {
+    public string _nickname;
+
     public abstract string GetVoice();
 }
 
