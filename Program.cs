@@ -2,13 +2,13 @@
 {
     public static void Main()
     {
-        var cat = new Cat("Myrzik");
-        PrintAnimalVoice(cat);
-        SaveAnimalVoice(cat);
+        AnimalBase animal = new Cat("Myrzik");
+        PrintAnimalVoice(animal);
+        SaveAnimalVoice(animal);
 
-        var dog = new Dog("Dryzhok");
-        PrintAnimalVoice(dog);
-        SaveAnimalVoice(dog);
+        animal = new Dog("Dryzhok");
+        PrintAnimalVoice(animal);
+        SaveAnimalVoice(animal);
     }
 
     public static void PrintAnimalVoice(AnimalBase animal)
