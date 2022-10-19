@@ -2,17 +2,26 @@
 {
     public static void Main()
     {
-        PrintCatVoice(); 
-        SaveCatVoice();
+        var cat = new Cat();
+        PrintCatVoice(cat); 
+        SaveCatVoice(cat);
     }
 
-    public static void PrintCatVoice()
+    public static void PrintCatVoice(Cat cat)
     {
-        Console.WriteLine("Meow");
+        Console.WriteLine(cat.GetVoice());
     }
 
-    public static void SaveCatVoice()
+    public static void SaveCatVoice(Cat cat)
     {
-        File.WriteAllText($"cat.voice", "Meow");
+        File.WriteAllText($"cat.voice", cat.GetVoice());
+    }
+}
+
+public class Cat
+{
+    public string GetVoice()
+    {
+        return "Meow";
     }
 }
