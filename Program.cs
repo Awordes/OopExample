@@ -9,6 +9,10 @@
         animal = new Dog("Dryzhok");
         PrintAnimalVoice(animal);
         SaveAnimalVoice(animal);
+        
+        animal = new Fox("Kurama");
+        PrintAnimalVoice(animal);
+        SaveAnimalVoice(animal);
     }
 
     public static void PrintAnimalVoice(AnimalBase animal)
@@ -31,7 +35,10 @@ public abstract class AnimalBase
         _nickname = nickname;
     }
 
-    public abstract string GetVoice();
+    public virtual string GetVoice()
+    {
+        return "<silence>";
+    }
 
     public string GetNickname()
     {
@@ -57,4 +64,9 @@ public class Dog: AnimalBase
     {
         return "Woof";
     }
+}
+
+public class Fox: AnimalBase
+{
+    public Fox(string nickname): base(nickname) {}
 }
