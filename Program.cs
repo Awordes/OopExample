@@ -13,6 +13,10 @@
         animal = new Fox("Kurama");
         PrintAnimalVoice(animal);
         SaveAnimalVoice(animal);
+
+        animal = new Fox();
+        PrintAnimalVoice(animal);
+        SaveAnimalVoice(animal);
     }
 
     public static void PrintAnimalVoice(AnimalBase animal)
@@ -69,4 +73,6 @@ public class Dog: AnimalBase
 public class Fox: AnimalBase
 {
     public Fox(string nickname): base(nickname) {}
+
+    public Fox(): base("Foxy") {}
 }
