@@ -32,6 +32,8 @@
 
 public abstract class AnimalBase
 {
+    public int VoiceCount { get; set; }
+
     private string _nickname;
 
     public AnimalBase(string nickname)
