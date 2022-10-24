@@ -20,12 +20,13 @@
 
         Cat cat = new Cat("Markiza");
         PrintAnimalVoice(cat);
-        cat.VoiceCount++;
     }
 
-    public static void PrintAnimalVoice(AnimalBase animal)
+    public static AnimalBase PrintAnimalVoice(AnimalBase animal)
     {
         Console.WriteLine(animal.GetVoice());
+        animal.VoiceCount++;
+        return animal;
     }
 
     public static void SaveAnimalVoice(AnimalBase animal)
