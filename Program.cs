@@ -19,10 +19,10 @@
         SaveAnimalVoice(animal);
 
         Cat cat = new Cat("Markiza");
-        PrintAnimalVoice(cat);
+        cat = PrintAnimalVoice(cat);
     }
 
-    public static AnimalBase PrintAnimalVoice(AnimalBase animal)
+    public static T PrintAnimalVoice<T>(T animal) where T: AnimalBase
     {
         Console.WriteLine(animal.GetVoice());
         animal.VoiceCount++;
