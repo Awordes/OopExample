@@ -17,6 +17,10 @@
         animal = new Fox();
         PrintAnimalVoice(animal);
         SaveAnimalVoice(animal);
+
+        Cat cat = new Cat("Markiza");
+        PrintAnimalVoice(cat);
+        cat.VoiceCount++;
     }
 
     public static void PrintAnimalVoice(AnimalBase animal)
